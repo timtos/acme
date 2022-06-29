@@ -1,0 +1,91 @@
+{
+  "projectType": "application",
+  "root": "apps/sodocu",
+  "sourceRoot": "apps/sodocu/src",
+  "prefix": "acme",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/sodocu",
+        "index": "apps/sodocu/src/index.html",
+        "main": "apps/sodocu/src/main.ts",
+        "polyfills": "apps/sodocu/src/polyfills.ts",
+        "tsConfig": "apps/sodocu/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/sodocu/src/favicon.ico", "apps/sodocu/src/assets"],
+        "styles": ["apps/sodocu/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/sodocu/src/environments/environment.ts",
+              "with": "apps/sodocu/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "sodocu:build:production"
+        },
+        "development": {
+          "browserTarget": "sodocu:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "sodocu:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/sodocu/src/**/*.ts",
+          "apps/sodocu/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/sodocu"],
+      "options": {
+        "jestConfig": "apps/sodocu/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

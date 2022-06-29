@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "sodocu": "apps/sodocu",
+    "sodocu-e2e": "apps/sodocu-e2e"
+  }
+}

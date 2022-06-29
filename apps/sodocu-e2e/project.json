@@ -1,0 +1,28 @@
+{
+  "root": "apps/sodocu-e2e",
+  "sourceRoot": "apps/sodocu-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/sodocu-e2e/cypress.json",
+        "devServerTarget": "sodocu:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "sodocu:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/sodocu-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["sodocu"]
+}
