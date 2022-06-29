@@ -1,6 +1,6 @@
 {
+  "$schema": "..\\..\\node_modules\\nx\\schemas\\project-schema.json",
   "projectType": "application",
-  "root": "apps/sodocu",
   "sourceRoot": "apps/sodocu/src",
   "prefix": "acme",
   "targets": {
@@ -82,7 +82,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/sodocu"],
       "options": {
-        "jestConfig": "apps/sodocu/jest.config.js",
+        "jestConfig": "apps/sodocu/jest.config.ts",
         "passWithNoTests": true
       }
     }
