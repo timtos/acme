@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "awesome": "libs/awesome",
     "sodocu": "apps/sodocu",
     "sodocu-e2e": "apps/sodocu-e2e"
   }
